@@ -143,6 +143,7 @@ namespace Svg
 
                     if (Renderable)
                     {
+                        var sm = renderer.SmoothingMode;
                         // If this element needs smoothing enabled turn anti-aliasing on
                         if (this.RequiresSmoothRendering)
                         {
@@ -153,10 +154,7 @@ namespace Svg
                         this.RenderStroke(renderer);
 
                         // Reset the smoothing mode
-                        if (this.RequiresSmoothRendering && renderer.SmoothingMode == SmoothingMode.AntiAlias)
-                        {
-                            renderer.SmoothingMode = SmoothingMode.Default;
-                        }
+                        renderer.SmoothingMode = sm;
                     }
                     else
                     {
